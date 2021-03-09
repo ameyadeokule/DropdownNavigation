@@ -6,8 +6,14 @@ import { ReactComponent as PlusIcon } from './icons/plus.svg'
 import { ReactComponent as CogIcon } from './icons/cog.svg'
 import { ReactComponent as ChevronIcon } from './icons/chevron.svg'
 import { ReactComponent as ArrowIcon } from './icons/arrow.svg'
-import { ReactComponent as BoltIcon } from './icons/bolt.svg'
-
+import { MdHelp } from 'react-icons/md'
+import { SiGnuprivacyguard } from 'react-icons/si'
+import { BsNewspaper, BsFillInboxesFill } from 'react-icons/bs'
+import { CgProfile } from 'react-icons/cg'
+import { FiActivity } from 'react-icons/fi'
+import { FaLanguage } from 'react-icons/fa'
+import { FcSupport } from 'react-icons/fc'
+import { GoReport } from 'react-icons/go'
 import React, { useState, useEffect, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
@@ -38,6 +44,7 @@ function NavItem(props) {
 
   return (
     <li className='nav-item'>
+      {/* eslint-disable-next-line */}
       <a href='#' className='icon-button' onClick={() => setOpen(!open)}>
         {props.icon}
       </a>
@@ -63,6 +70,7 @@ function DropdownMenu() {
 
   function DropdownItem(props) {
     return (
+      // eslint-disable-next-line
       <a
         href='#'
         className='menu-item'
@@ -83,7 +91,7 @@ function DropdownMenu() {
         unmountOnExit
         onEnter={calcHeight}>
         <div className='menu'>
-          <DropdownItem>My Profile</DropdownItem>
+          <DropdownItem leftIcon={<CgProfile />}>My Profile</DropdownItem>
           <DropdownItem
             leftIcon={<CogIcon />}
             rightIcon={<ChevronIcon />}
@@ -91,7 +99,7 @@ function DropdownMenu() {
             Settings
           </DropdownItem>
           <DropdownItem
-            leftIcon='🦧'
+            leftIcon={<FcSupport style={{ color: 'white' }} />}
             rightIcon={<ChevronIcon />}
             goToMenu='help'>
             Help & Support
@@ -109,10 +117,10 @@ function DropdownMenu() {
           <DropdownItem goToMenu='main' leftIcon={<ArrowIcon />}>
             <h2>Settings</h2>
           </DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>Privacy</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>News Feed</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>Activity</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>Language</DropdownItem>
+          <DropdownItem leftIcon={<SiGnuprivacyguard />}>Privacy</DropdownItem>
+          <DropdownItem leftIcon={<BsNewspaper />}>News Feed</DropdownItem>
+          <DropdownItem leftIcon={<FiActivity />}>Activity</DropdownItem>
+          <DropdownItem leftIcon={<FaLanguage />}>Language</DropdownItem>
         </div>
       </CSSTransition>
 
@@ -126,9 +134,11 @@ function DropdownMenu() {
           <DropdownItem goToMenu='main' leftIcon={<ArrowIcon />}>
             <h2>Help & Support</h2>
           </DropdownItem>
-          <DropdownItem leftIcon='🦘'>Help Center</DropdownItem>
-          <DropdownItem leftIcon='🐸'>Support Inbox</DropdownItem>
-          <DropdownItem leftIcon='🦋'>Report a Problem</DropdownItem>
+          <DropdownItem leftIcon={<MdHelp />}>Help Center</DropdownItem>
+          <DropdownItem leftIcon={<BsFillInboxesFill />}>
+            Support Inbox
+          </DropdownItem>
+          <DropdownItem leftIcon={<GoReport />}>Report a Problem</DropdownItem>
         </div>
       </CSSTransition>
     </div>

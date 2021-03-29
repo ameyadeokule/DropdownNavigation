@@ -1,10 +1,10 @@
 import React from 'react'
 import DropdownNav from './DropdownNav/DropdownNav'
-
+import Sidebar from './Sidebar/Sidebar';
 const App = () => {
     return (
         <div>
-            <DropdownNav />
+            <Sidebar />
         </div>
     )
 }
